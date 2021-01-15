@@ -11,4 +11,4 @@ coverage/
 public/
 Thumbs.db
 db.json
-.deploy_git/
+.deploy*/
