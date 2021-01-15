@@ -3,5 +3,13 @@ node_modules/
 tmp/
 *.log
 .idea/
+yarn.lock
+package-lock.json
 .nyc_output/
+coverage/
+.tmp*
+public/
+Thumbs.db
+db.json
+.deploy*/
 
