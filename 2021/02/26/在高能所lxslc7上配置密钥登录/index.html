@@ -187,7 +187,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      414 字
+      436 字
     </span>
   
 
@@ -197,7 +197,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      4
+      5
        分钟
     </span>
   
@@ -239,10 +239,12 @@
 <p>修改本地的<code>~/.ssh/config</code>设置，在<code>Host</code>下添加</p>
 <figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arcade">IdentityFile ~<span class="hljs-regexp">/.ssh/</span>lxslc<br></code></pre></td></tr></table></figure>
 <p>下次登录就是密钥登录了。</p>
-<h2 id="Troubleshooting"><a href="#Troubleshooting" class="headerlink" title="Troubleshooting"></a>Troubleshooting</h2><p>可实际上往往没有这么顺利。在我登录集群之后遇到了<code>$HOME</code>目录没有读写权限和X11错误的问题。按照高能所计算环境使用手册的FAQ，采取以下操作：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">-bash-4.2$ kinit username<br>Password <span class="hljs-keyword">for</span> username@IHEPKRB5:<br>-bash-4.2$ aklog<br>-bash-4.2$ rm -f ~/.Xauthority<br></code></pre></td></tr></table></figure>
+<h2 id="Troubleshooting"><a href="#Troubleshooting" class="headerlink" title="Troubleshooting"></a>Troubleshooting</h2><p>可实际上往往没有这么顺利。在我登录集群之后遇到了<code>$HOME</code>目录没有读写权限和X11错误的问题。登录后会出现以下提示</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">/usr/</span>bin<span class="hljs-regexp">/xauth:  timeout in locking authority file /</span>afs<span class="hljs-regexp">/ihep.ac.cn/u</span>sers<span class="hljs-regexp">/z/u</span>sername/.Xauthority<br></code></pre></td></tr></table></figure>
+<p>按照高能所计算环境使用手册的FAQ，采取以下操作：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">-bash-4.2$ kinit<br>Password <span class="hljs-keyword">for</span> username@IHEPKRB5:<br>-bash-4.2$ aklog<br>-bash-4.2$ rm -f ~/.Xauthority<br></code></pre></td></tr></table></figure>
 <p>随后退出重新登录即可。</p>
-<h2 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a>题外话</h2><p>我还想对CERN的lxplus集群做类似操作，但根据CERN的指南，不建议使用密钥登录，因为使用这种方法登录后没有afs文件系统的读写权限。我只好作罢。CERN推荐使用Kerberos实现免密登录。</p>
+<h2 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a>题外话</h2><p>我还想对CERN的lxplus集群做类似操作，但根据CERN的指南，不建议使用密钥登录，因为使用这种方法登录后无法访问afs文件系统，只好作罢。CERN推荐使用Kerberos实现免密登录。</p>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>SSH FAQ for CERN：<a target="_blank" rel="noopener" href="https://twiki.cern.ch/twiki/bin/view/LinuxSupport/SSHatCERNFAQ">https://twiki.cern.ch/twiki/bin/view/LinuxSupport/SSHatCERNFAQ</a></p>
 <p>高能所计算环境使用手册：<a target="_blank" rel="noopener" href="http://afsapply.ihep.ac.cn/cchelp/zh/">http://afsapply.ihep.ac.cn/cchelp/zh/</a></p>
 
