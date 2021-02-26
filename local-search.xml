@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>在高能所lxslc7上配置密钥登录</title>
+    <link href="/2021/02/26/%E5%9C%A8%E9%AB%98%E8%83%BD%E6%89%80lxslc7%E4%B8%8A%E9%85%8D%E7%BD%AE%E5%AF%86%E9%92%A5%E7%99%BB%E5%BD%95/"/>
+    <url>/2021/02/26/%E5%9C%A8%E9%AB%98%E8%83%BD%E6%89%80lxslc7%E4%B8%8A%E9%85%8D%E7%BD%AE%E5%AF%86%E9%92%A5%E7%99%BB%E5%BD%95/</url>
+    
+    <content type="html"><![CDATA[<p>随着工作量的增大，集群的使用也越来越频繁。可是每次登录都要输密码让我很烦。于是我参照网上的教程和高能所集群使用手册设置密钥登录。</p><h2 id="生成密钥"><a href="#生成密钥" class="headerlink" title="生成密钥"></a>生成密钥</h2><p>首先在我自己的电脑上生成密钥</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh-keygen -t rsa -f lxslc<br></code></pre></td></tr></table></figure><p>因为我本地的<code>~/.ssh</code>中已经有了Github私钥，为了不覆盖GitHub私钥，需要对文件命名。如果没有其他私钥则不需要指定文件名<code>-f</code>。然后，在<code>~/.ssh</code>中可以看到有<code>lxslc</code>和<code>lxslc.pub</code>两个文件。前者为私钥，后者为公钥。随后将公钥上传到lxslc集群<code>~/.ssh</code>中。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">scp lxslc.pub username@lxslc7.ihep.ac.cn:~/.ssh/authorized_keys<br></code></pre></td></tr></table></figure><p>随后登录到集群，确保<code>authorized_keys</code>文件权限为600。</p><p>修改本地的<code>~/.ssh/config</code>设置，在<code>Host</code>下添加</p><figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arcade">IdentityFile ~<span class="hljs-regexp">/.ssh/</span>lxslc<br></code></pre></td></tr></table></figure><p>下次登录就是密钥登录了。</p><h2 id="Troubleshooting"><a href="#Troubleshooting" class="headerlink" title="Troubleshooting"></a>Troubleshooting</h2><p>可实际上往往没有这么顺利。在我登录集群之后遇到了<code>$HOME</code>目录没有读写权限和X11错误的问题。按照高能所计算环境使用手册的FAQ，采取以下操作：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">-bash-4.2$ kinit username<br>Password <span class="hljs-keyword">for</span> username@IHEPKRB5:<br>-bash-4.2$ aklog<br>-bash-4.2$ rm -f ~/.Xauthority<br></code></pre></td></tr></table></figure><p>随后退出重新登录即可。</p><h2 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a>题外话</h2><p>我还想对CERN的lxplus集群做类似操作，但根据CERN的指南，不建议使用密钥登录，因为使用这种方法登录后没有afs文件系统的读写权限。我只好作罢。CERN推荐使用Kerberos实现免密登录。</p><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>SSH FAQ for CERN：<a href="https://twiki.cern.ch/twiki/bin/view/LinuxSupport/SSHatCERNFAQ">https://twiki.cern.ch/twiki/bin/view/LinuxSupport/SSHatCERNFAQ</a></p><p>高能所计算环境使用手册：<a href="http://afsapply.ihep.ac.cn/cchelp/zh/">http://afsapply.ihep.ac.cn/cchelp/zh/</a></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Linux</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>环巢湖自驾游</title>
     <link href="/2021/02/24/%E7%8E%AF%E5%B7%A2%E6%B9%96%E8%87%AA%E9%A9%BE%E6%B8%B8/"/>
     <url>/2021/02/24/%E7%8E%AF%E5%B7%A2%E6%B9%96%E8%87%AA%E9%A9%BE%E6%B8%B8/</url>
