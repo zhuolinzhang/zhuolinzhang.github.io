@@ -44,3 +44,10 @@ From now on, I will write the experiment log everyday. I will try to write this 
 scram b distclean && scram b vclean && scram b clean
 ```
 
+### 11
+
+找到了存在4日任务1问题的原因。老的workflow，即保存cut后的`TTree`的analyzer脚本是正确的。在我之前的workflow中，我找到的muon和jet对都是我希望所找的。而在当前的workflow中，我为了图省事，全部选取了leading particles作为筛选对象。但实际上，leading particle不一定满足我需要的cut条件。而这种情况下，显然不能只选取leading particles去做cut。只能说如果全部cut完，还有多个粒子对满足条件，此时再选取leading particles作为我需要的粒子。
+
+但是只是找到了原因。怎么改还是毫无头绪。应该把我的workflow反过来，先cut再把`TTree`变成flat。但我不知道`RDataFrame`怎么去做非flat `TTree`的cut。我之前想着加All但是目前发现这样好像行不通。muon貌似正常，jet总是不对。莫名其妙。
+
+重构代码进度缓慢。目前大概把新的hist类写完了。离完成还差得远。先解决上一个问题再说吧。
