@@ -51,3 +51,17 @@ scram b distclean && scram b vclean && scram b clean
 但是只是找到了原因。怎么改还是毫无头绪。应该把我的workflow反过来，先cut再把`TTree`变成flat。但我不知道`RDataFrame`怎么去做非flat `TTree`的cut。我之前想着加All但是目前发现这样好像行不通。muon貌似正常，jet总是不对。莫名其妙。
 
 重构代码进度缓慢。目前大概把新的hist类写完了。离完成还差得远。先解决上一个问题再说吧。
+
+### 12
+
+虽然确定了问题，但是找不到解决方案。`RDataFrame`似乎无法解决问题。其中的`Filter`方法只能对每一个事例做判选。没有办法实现我想要的功能。即：loop每一个事例中的vector，留下我想要的元素，剔除我不要的元素。我写了一个lambda函数，
+
+```cpp
+d.Filter([](std::vector<float> &mu1Pt, std::vector<float> &mu2Pt){for (auto i1 : mu1Pt) {for (auto i2 : mu2Pt) {if (i1 > 25 && i2 > 15) return true; else return false;}}}, {"mu1Pt", "mu2Pt"}, "Muon pt");
+```
+
+但不幸的是它只能loop每一个vector的第0个元素。所以恐怕`RDataFrame`无法解决这个问题。
+
+目前的思路是利用`TTreeReader`，重写muon1，muon2，jet1，jet2四个vector，随后对这4个vector进行判选，同时也需要避免重复。
+
+但我认为与其这么麻烦还不如回到老的workflow上去。
