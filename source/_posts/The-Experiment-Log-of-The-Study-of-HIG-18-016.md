@@ -75,3 +75,7 @@ d.Filter([](std::vector<float> &mu1Pt, std::vector<float> &mu2Pt){for (auto i1 :
 目前还有一点隐忧就是cut好的analyzer出来的TTree的事例数与这种方法出来的事例数仍然有100左右的差距。需要通过`uproot`导出然后利用`pandas`比较差异。看看到底怎么回事。
 
 接下来就可以全力以赴重构画图脚本了。当然cutflow的事情还不算完，还需要写一个脚本把这些cutflow归类处理。希望可以利用`pandas`完成这项工作。
+
+### 17
+
+I have fixed bugs in the new skim macro. But There is still one problem in the new macro. An event passed all selections in the new workflow, but this event can't pass all selections in the old workflow. I don't understand the reason. Let me add the cutflow function in the old macro, then, the reason may come out.
