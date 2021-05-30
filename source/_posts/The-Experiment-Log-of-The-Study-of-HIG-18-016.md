@@ -79,3 +79,14 @@ d.Filter([](std::vector<float> &mu1Pt, std::vector<float> &mu2Pt){for (auto i1 :
 ### 17
 
 I have fixed bugs in the new skim macro. But There is still one problem in the new macro. An event passed all selections in the new workflow, but this event can't pass all selections in the old workflow. I don't understand the reason. Let me add the cutflow function in the old macro, then, the reason may come out.
+
+### 30
+
+很久没有更新了。因为太忙有时候就忘了更新，久而久之就不记得了。
+
+这一段时间完成了从旧的workflow向新的workflow的切换。彻底修好了skim脚本的bug。彻底重构了画图脚本。这也是我第一次写的面向对象的程序。目前，根据CMS的要求，下一周要把数据从ReReco切换到UL。
+
+此外，跟老板讨论了申请博士的问题。前景依然不明朗。
+
+此外还要接一个唯象的工作，分析AZZ。A指axion。不知道我已经快要还光的理论知识还能不能hold住这个题目。但是别无他法。毕竟实验的工作前景不明朗。
+
