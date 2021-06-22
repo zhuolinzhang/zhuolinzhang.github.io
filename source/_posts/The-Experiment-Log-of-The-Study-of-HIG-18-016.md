@@ -10,8 +10,6 @@ tags: CMS
 
 ### 04
 
-From now on, I will write the experiment log everyday. I will try to write this in English. However, for my poor English, it is hard to write every log in English. I will try my best.
-
 学习`python`中的类，主要阅读《python学习手册》一书的内容。第六部分还有两章，但是看不下去了。看程序书实在是枯燥。
 
 这两周（至5.13）需要完成的任务有：
@@ -90,3 +88,10 @@ I have fixed bugs in the new skim macro. But There is still one problem in the n
 
 此外还要接一个唯象的工作，分析AZZ。A指axion。不知道我已经快要还光的理论知识还能不能hold住这个题目。但是别无他法。毕竟实验的工作前景不明朗。
 
+## June
+
+### 22
+
+在12号的大组会上给了报告。报告本身挺翻车的。但是事后的建议让我认识到了组里的高效。我认为有时间的话还是应该将分析从MINIAOD迁移到NANOAOD上。NANOAOD的工具比MINIAOD要简单非常多。
+
+目前需要做的事情是把$\sigma \times BR$关于$p_T$和$m_{dijet}$的分布给做出来。这个图在之前的CMSDAS的long exercise上做过。但当时只是作图，没有把代码看清楚。我不是很清楚通过combine计算出来的signal strength是怎么转化为limit的。如果这个问题搞明白了后面就简单了。
