@@ -1,0 +1,521 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Zhuolin">
+  <meta name="keywords" content="">
+  
+  <title>The Experiment Log of The Study of HIG-18-016 - Zhuolin&#39;s blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"zhuolinzhang.github.io","root":"/","version":"1.8.10","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Zhuolin's blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/image/bannerimg.jpeg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="The Experiment Log of The Study of HIG-18-016">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-05-04 23:59" pubdate>
+        May 4, 2021 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.8k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      20
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">The Experiment Log of The Study of HIG-18-016</h1>
+            
+            <div class="markdown-body">
+              <h1 id="2021"><a href="#2021" class="headerlink" title="2021"></a>2021</h1><h2 id="May"><a href="#May" class="headerlink" title="May"></a>May</h2><h3 id="04"><a href="#04" class="headerlink" title="04"></a>04</h3><p>学习<code>python</code>中的类，主要阅读《python学习手册》一书的内容。第六部分还有两章，但是看不下去了。看程序书实在是枯燥。</p>
+<p>这两周（至5.13）需要完成的任务有：</p>
+<ol>
+<li>检查用不同的代码生成的<code>TTree</code>作图却产生迥异结果的原因</li>
+<li>重构画图代码</li>
+<li>写一个计算cutflow的小程序</li>
+</ol>
+<p>当前思路：</p>
+<ol>
+<li>首先检查老代码的cut条件与新代码的cut条件是否一致。随后可以重新提交老代码。之后利用<code>uproot</code>，将信号样本的<code>TTree</code>导出成文本文件。随后，利用<code>difflib</code>检查两个文本文件的区别在哪里。如果新代码的结果是老代码的子集，那么检查新代码的flat <code>TTree</code>文件。但我感觉这样有可能依然无法找到问题所在。</li>
+<li>将脚本完全写成OOP的。将一些方法，例如scale，放在class histogram中。最好能抛弃exec的动态调用，再class histogram中加入一些属性，实现直方图分类。另外，做ratio图部分的代码也需要重构。尽量避免复制粘贴一段代码的事情，减少维护的工作量。此外，可以考虑将信号的stack图改成将信号放大1000倍（举个栗子）的形式。</li>
+<li>将结果输入成<code>numpy</code>矩阵。根据文件名？分类。Then, scale the number and sum it. We should also calculate the ratio of pass and all. In the end, we can get the final result.</li>
+</ol>
+<p>任务很重，后面几天到8号没有集中的学习的时间，需要抓紧。</p>
+<h3 id="05"><a href="#05" class="headerlink" title="05"></a>05</h3><p>阅读《python学习手册》（第四版）32章-33章，33章未看完。</p>
+<h3 id="10"><a href="#10" class="headerlink" title="10"></a>10</h3><p>修改以前写的cut好的<code>ZHNtuple</code>程序，与新的不做cut的程序的变量命名和cut条件保持一致。并提交给CRAB。</p>
+<p>一个可能的问题的解决方法：如果<code>scram b</code>没有激活<code>edmplugin</code>，运行cmsRun提示<code>Unable to find plugin &#39;&#39; in category &#39;CMS EDM Framework Module&#39;.</code></p>
+<p>彻底清除cache，删掉警告的存在重复命名的目录。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">scram b distclean &amp;&amp; scram b vclean &amp;&amp; scram b clean<br></code></pre></td></tr></table></figure>
+
+<h3 id="11"><a href="#11" class="headerlink" title="11"></a>11</h3><p>找到了存在4日任务1问题的原因。老的workflow，即保存cut后的<code>TTree</code>的analyzer脚本是正确的。在我之前的workflow中，我找到的muon和jet对都是我希望所找的。而在当前的workflow中，我为了图省事，全部选取了leading particles作为筛选对象。但实际上，leading particle不一定满足我需要的cut条件。而这种情况下，显然不能只选取leading particles去做cut。只能说如果全部cut完，还有多个粒子对满足条件，此时再选取leading particles作为我需要的粒子。</p>
+<p>但是只是找到了原因。怎么改还是毫无头绪。应该把我的workflow反过来，先cut再把<code>TTree</code>变成flat。但我不知道<code>RDataFrame</code>怎么去做非flat <code>TTree</code>的cut。我之前想着加All但是目前发现这样好像行不通。muon貌似正常，jet总是不对。莫名其妙。</p>
+<p>重构代码进度缓慢。目前大概把新的hist类写完了。离完成还差得远。先解决上一个问题再说吧。</p>
+<h3 id="12"><a href="#12" class="headerlink" title="12"></a>12</h3><p>虽然确定了问题，但是找不到解决方案。<code>RDataFrame</code>似乎无法解决问题。其中的<code>Filter</code>方法只能对每一个事例做判选。没有办法实现我想要的功能。即：loop每一个事例中的vector，留下我想要的元素，剔除我不要的元素。我写了一个lambda函数，</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp">d.<span class="hljs-built_in">Filter</span>([](std::vector&lt;<span class="hljs-keyword">float</span>&gt; &amp;mu1Pt, std::vector&lt;<span class="hljs-keyword">float</span>&gt; &amp;mu2Pt)&#123;<span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> i1 : mu1Pt) &#123;<span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> i2 : mu2Pt) &#123;<span class="hljs-keyword">if</span> (i1 &gt; <span class="hljs-number">25</span> &amp;&amp; i2 &gt; <span class="hljs-number">15</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>; <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;&#125;&#125;&#125;, &#123;<span class="hljs-string">&quot;mu1Pt&quot;</span>, <span class="hljs-string">&quot;mu2Pt&quot;</span>&#125;, <span class="hljs-string">&quot;Muon pt&quot;</span>);<br></code></pre></td></tr></table></figure>
+
+<p>但不幸的是它只能loop每一个vector的第0个元素。所以恐怕<code>RDataFrame</code>无法解决这个问题。</p>
+<p>目前的思路是利用<code>TTreeReader</code>，重写muon1，muon2，jet1，jet2四个vector，随后对这4个vector进行判选，同时也需要避免重复。</p>
+<p>但我认为与其这么麻烦还不如回到老的workflow上去。</p>
+<h3 id="14"><a href="#14" class="headerlink" title="14"></a>14</h3><p>总算是将任务1全部完成了。新代码完全使用<code>TTreeReader</code>，损失了一些速度，但是物理是正确的。而且加入了cutflow的功能。相比原来的代码功能上保持了一致。</p>
+<p>想想最开始写cutflow的时候是加上不同的cut条件画出不同的不变质量谱。复制粘贴了好几个for循环。又丑又笨。当你在复制粘贴程序的时候就应该意识到写一个函数来完成这些操作。而不是复制粘贴。这次用了相对巧妙一些的办法。每通过一个cut条件，计数器+1，最后选取这一个entry里得分最高的作为这个entry的分数。随后根据不同的分数计算cutflow。目前看这么做可行。</p>
+<p>目前还有一点隐忧就是cut好的analyzer出来的TTree的事例数与这种方法出来的事例数仍然有100左右的差距。需要通过<code>uproot</code>导出然后利用<code>pandas</code>比较差异。看看到底怎么回事。</p>
+<p>接下来就可以全力以赴重构画图脚本了。当然cutflow的事情还不算完，还需要写一个脚本把这些cutflow归类处理。希望可以利用<code>pandas</code>完成这项工作。</p>
+<h3 id="17"><a href="#17" class="headerlink" title="17"></a>17</h3><p>I have fixed bugs in the new skim macro. But There is still one problem in the new macro. An event passed all selections in the new workflow, but this event can’t pass all selections in the old workflow. I don’t understand the reason. Let me add the cutflow function in the old macro, then, the reason may come out.</p>
+<h3 id="30"><a href="#30" class="headerlink" title="30"></a>30</h3><p>很久没有更新了。因为太忙有时候就忘了更新，久而久之就不记得了。</p>
+<p>这一段时间完成了从旧的workflow向新的workflow的切换。彻底修好了skim脚本的bug。彻底重构了画图脚本。这也是我第一次写的面向对象的程序。目前，根据CMS的要求，下一周要把数据从ReReco切换到UL。</p>
+<p>此外，跟老板讨论了申请博士的问题。前景依然不明朗。</p>
+<p>此外还要接一个唯象的工作，分析AZZ。A指axion。不知道我已经快要还光的理论知识还能不能hold住这个题目。但是别无他法。毕竟实验的工作前景不明朗。</p>
+<h2 id="June"><a href="#June" class="headerlink" title="June"></a>June</h2><h3 id="22"><a href="#22" class="headerlink" title="22"></a>22</h3><p>在12号的大组会上给了报告。报告本身挺翻车的。但是事后的建议让我认识到了组里的高效。我认为有时间的话还是应该将分析从MINIAOD迁移到NANOAOD上。NANOAOD的工具比MINIAOD要简单非常多。</p>
+<p>目前需要做的事情是把$\sigma \times BR$关于$p_T$和$m_{dijet}$的分布给做出来。这个图在之前的CMSDAS的long exercise上做过。但当时只是作图，没有把代码看清楚。我不是很清楚通过combine计算出来的signal strength是怎么转化为limit的。如果这个问题搞明白了后面就简单了。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/CMS/">CMS</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/06/22/Axion-Work-Process/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Axion Work Process</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/02/26/%E5%9C%A8%E9%AB%98%E8%83%BD%E6%89%80lxslc7%E4%B8%8A%E9%85%8D%E7%BD%AE%E5%AF%86%E9%92%A5%E7%99%BB%E5%BD%95/">
+                        <span class="hidden-mobile">在高能所lxslc7上配置密钥登录</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
