@@ -95,3 +95,56 @@ I have fixed bugs in the new skim macro. But There is still one problem in the n
 在12号的大组会上给了报告。报告本身挺翻车的。但是事后的建议让我认识到了组里的高效。我认为有时间的话还是应该将分析从MINIAOD迁移到NANOAOD上。NANOAOD的工具比MINIAOD要简单非常多。
 
 目前需要做的事情是把$\sigma \times BR$关于$p_T$和$m_{dijet}$的分布给做出来。这个图在之前的CMSDAS的long exercise上做过。但当时只是作图，没有把代码看清楚。我不是很清楚通过combine计算出来的signal strength是怎么转化为limit的。如果这个问题搞明白了后面就简单了。
+
+### 28
+
+MC的一些总结参见：[A Note on Analysis Based on MC Generators - Zhuolin's blog (zhuolinzhang.github.io)](https://zhuolinzhang.github.io/2021/06/29/A-Note-on-Analysis-Based-on-MC-Generators/)
+
+目前我需要看理论的$p p \rightarrow z h$的微分截面关于$p_T^{dijet}$的分布。怎么看呢？要么手算，要么用MC generator生成。我选择后者。
+
+这个样本
+
+```
+dataset=/ZH_HToBB_ZToLL_M125_13TeV_powheg_pythia8/RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v2/MINIAODSIM
+```
+
+却使用powheg产生的。很不幸，我没用过powheg。这几天为此颇费脑筋。
+
+首先我在本地用MG5产生了一个
+
+```
+generate p p > z > z h, z > mu+ mu-, h > b b~
+```
+
+过程的样本。可是这个过程的截面是$0.01607\ \mathrm{pb}$左右。与该样本的截面$0.07924\ \mathrm{pb}$相去甚远。所以我想恐怕是物理过程有区别。
+
+在McM里，Select View勾选Fragment，可以看到生成样本使用的`_cff.py`文件。勾选Generator parameters可以看到截面。从cff文件可以看到产生样本使用的card以及pythia8的设置。打开card，发现
+
+```
+vdecaymode   11   ! 1: e, 2: mu, 3: tau, 4:nu_e, 5: nu_mu, 6: nu_tau, 0: hadronic, 10: inclusive, 11: inclusive leptons, 12: inclusive neutrinos
+hdecaymode  -1   ! for PYTHIA or HERWIG: do not decay the Higgs boson
+```
+
+果然过程不一样。从XSDB里可以看到这个截面是NLO的，那恐怕powheg产生的样本是NLO样本。于是在MG5中
+
+```
+define l+ = e+ mu+ ta+ # default l+ excluded tau
+define l- = e- mu- ta-
+generate p p > z > h l+ l- [QCD]
+```
+
+这样产生的过程是NLO的。可以注意到这里Higgs没有衰变。随后在Pythia8的card里设置
+
+```
+DM_1 = 25:m0 = 125.0
+DM_2 = 25:onMode = off
+DM_3 = 25:onIfMatch = 5 -5 # Higgs decay to b b~
+```
+
+最后得到的截面为$0.07618 \pm 9.5\times 10^{-5}\ \mathrm{pb}$。结果已经很接近了。但目前还需要确认$\tau$在不在powheg的$Z$的衰变产物内。如果没有$\tau$子恐怕又要头疼一阵了。
+
+一些可能有用的链接：
+
+- [PowhegBOXPrecompiled < CMS < TWiki (cern.ch)](https://twiki.cern.ch/twiki/bin/viewauth/CMS/PowhegBOXPrecompiled) powheg的tutorial。目前我试图在HTCondor上提交讲gridpack转换成LHE的作业，一直不成功。暂时没有找到原因。目前只好在lxplus上直接运行，但是速度特别特别慢。
+- [HowToGenXSecAnalyzer < CMS < TWiki (cern.ch)](https://twiki.cern.ch/twiki/bin/viewauth/CMS/HowToGenXSecAnalyzer)可以计算任意CMS官方MC样本的截面。
+- [cms-sw/genproductions: Generator fragments for MC production (github.com)](https://github.com/cms-sw/genproductions) CMSSW关于generator的仓库。有各种各样的MC generator cards(`bin/`)，Pythia8的参数(`genfragments/`)和第二个链接的算截面的工具。
