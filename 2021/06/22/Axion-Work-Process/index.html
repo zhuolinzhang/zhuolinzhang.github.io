@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      0 字
+      361 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      4
        分钟
     </span>
   
@@ -228,12 +228,36 @@
             <h1 style="display: none">Axion Work Process</h1>
             
             <div class="markdown-body">
-              
+              <h2 id="2021-08"><a href="#2021-08" class="headerlink" title="2021-08"></a>2021-08</h2><h3 id="14"><a href="#14" class="headerlink" title="14"></a>14</h3><p>今天用<code>MadGraph5</code>尝试做了一下MC模拟。因为最近对于EFT的学习以及和万老师再次讨论有了思路。</p>
+<p>在<code>SMEFTatNLO</code>模型中，我们通过</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs routeros">import model SMEFTatNLO-full<br>generate g g &gt; z z <span class="hljs-attribute">QCD</span>=2 <span class="hljs-attribute">QED</span>=2 <span class="hljs-attribute">NP</span>=2 NP^<span class="hljs-attribute">2</span>=2 [<span class="hljs-attribute">virt</span>=QCD]<br></code></pre></td></tr></table></figure>
+
+<p>生成MC样本。最后可以得到$gg \rightarrow h \rightarrow zz$ 过程和$gg\rightarrow zz$的box图的干涉。这也是万老师希望做的。但是今天又跟万老师讨论了一下发现她有需要去做一个有ALP的样本。那么我们就不能用<code>SMEFTatNLO</code>来完成这项工作。</p>
+<p>在<code>Feynrules</code>网站上，我找到了一个UFO，即<code>ALP_linear_UFO</code>。这个模型倒是有我们想要的$gg\rightarrow a \rightarrow zz$过程，但是它不能处理NLO过程。所以最后这项工作恐怕还需要自己写一个<code>Feynrules</code>的UFO来处理。</p>
+<p>今天遗留的问题：</p>
+<ul>
+<li>既然昨天的讨论中说，ALP的有效顶点与Higgs的有效顶点是一样的，那么为什么我们不能直接改Higgs的质量把它当作ALP？</li>
+<li>在<code>ALP_linea_UFO</code>中，ALP的PDG ID是9000005，这该怎么理解？</li>
+<li>为什么<code>SMEFTatNLO-full</code>包含了$ggH$过程？之前用写入了cpq3i、cpW、cpWB的restrict card去产生$ggH$过程却失败了，这是为什么？相比<code>SMEFTatNLO-full</code>，缺少了什么Wilson coefficients？或者是Yukawa coupling constant？</li>
+</ul>
+<p>可能需要做的事情：</p>
+<ul>
+<li>学习如何写<code>Feynrules</code>UFO；</li>
+<li>考虑用JHUGen或者POWHEG去产生这些过程。</li>
+</ul>
+
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/ALP/">ALP</a>
+                    
+                  </div>
                 
               </div>
               

@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.3k 字
+      2.5k 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      28
+      29
        分钟
     </span>
   
@@ -293,6 +293,12 @@
 <li><a target="_blank" rel="noopener" href="https://twiki.cern.ch/twiki/bin/viewauth/CMS/PowhegBOXPrecompiled">PowhegBOXPrecompiled &lt; CMS &lt; TWiki (cern.ch)</a> powheg的tutorial。目前我试图在HTCondor上提交讲gridpack转换成LHE的作业，一直不成功。暂时没有找到原因。目前只好在lxplus上直接运行，但是速度特别特别慢。</li>
 <li><a target="_blank" rel="noopener" href="https://twiki.cern.ch/twiki/bin/viewauth/CMS/HowToGenXSecAnalyzer">HowToGenXSecAnalyzer &lt; CMS &lt; TWiki (cern.ch)</a>可以计算任意CMS官方MC样本的截面。</li>
 <li><a target="_blank" rel="noopener" href="https://github.com/cms-sw/genproductions">cms-sw/genproductions: Generator fragments for MC production (github.com)</a> CMSSW关于generator的仓库。有各种各样的MC generator cards(<code>bin/</code>)，Pythia8的参数(<code>genfragments/</code>)和第二个链接的算截面的工具。</li>
+</ul>
+<h2 id="August"><a href="#August" class="headerlink" title="August"></a>August</h2><h3 id="14-1"><a href="#14-1" class="headerlink" title="14"></a>14</h3><p>13日在组会上作了报告，但是反响平平。这一个多月完成了$\sigma(ZH) \times BR(Z \rightarrow l^+ l^-)$的upper limit关于$p_T$的分布图。目前存在三个问题</p>
+<ul>
+<li>如何在lxplus上生成$ZH$的EFT样本？目前这种先写restrict_card，再产生样本的workflow，是无法在lxplus上工作的。</li>
+<li>MG5 reweighting 的原理是什么？怎么用reweighting的方法产生MC样本？怎样找到$ZH$ EFT的benchmark point？</li>
+<li>为什么将信号强度放缩到截面分布的放缩因子是pfjets的截面分布？</li>
 </ul>
 
             </div>
