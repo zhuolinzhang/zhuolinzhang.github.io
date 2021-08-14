@@ -148,3 +148,13 @@ DM_3 = 25:onIfMatch = 5 -5 # Higgs decay to b b~
 - [PowhegBOXPrecompiled < CMS < TWiki (cern.ch)](https://twiki.cern.ch/twiki/bin/viewauth/CMS/PowhegBOXPrecompiled) powheg的tutorial。目前我试图在HTCondor上提交讲gridpack转换成LHE的作业，一直不成功。暂时没有找到原因。目前只好在lxplus上直接运行，但是速度特别特别慢。
 - [HowToGenXSecAnalyzer < CMS < TWiki (cern.ch)](https://twiki.cern.ch/twiki/bin/viewauth/CMS/HowToGenXSecAnalyzer)可以计算任意CMS官方MC样本的截面。
 - [cms-sw/genproductions: Generator fragments for MC production (github.com)](https://github.com/cms-sw/genproductions) CMSSW关于generator的仓库。有各种各样的MC generator cards(`bin/`)，Pythia8的参数(`genfragments/`)和第二个链接的算截面的工具。
+
+## August
+
+### 14
+
+13日在组会上作了报告，但是反响平平。这一个多月完成了$\sigma(ZH) \times BR(Z \rightarrow l^+ l^-)$的upper limit关于$p_T$的分布图。目前存在三个问题
+
+- 如何在lxplus上生成$ZH$的EFT样本？目前这种先写restrict_card，再产生样本的workflow，是无法在lxplus上工作的。
+- MG5 reweighting 的原理是什么？怎么用reweighting的方法产生MC样本？怎样找到$ZH$ EFT的benchmark point？
+- 为什么将信号强度放缩到截面分布的放缩因子是pfjets的截面分布？
